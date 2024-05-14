@@ -26,7 +26,7 @@
                 text-align: center;
                 color: white;
                 opacity: 0;
-                animation: fadeIn 0.3s forwards;
+                animation: fadeIn 2s forwards;
             }
 
             .producto-info {
@@ -34,11 +34,11 @@
                 padding: 20px;
                 text-align: center;
                 opacity: 0;
-                animation: fadeOut 0.3s forwards;
+                animation: fadeOut 3s forwards;
             }
 
             .producto-info.visible {
-                animation: fadeIn 0.3s forwards;
+                animation: fadeIn 2s forwards;
             }
 
             .card-title {
