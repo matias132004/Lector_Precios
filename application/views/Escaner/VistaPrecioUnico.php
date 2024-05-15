@@ -18,7 +18,11 @@
         <?php endforeach; ?>
     </div>
 </div>
-
+<script>
+            setTimeout(function () {
+                window.location.href = '<?php echo base_url() ?>ControladorEscanear/index';
+            }, 8000);
+        </script>
 
 <script>
 <?php if ($configuracion['dictado_precios'] === 't') : ?>
@@ -41,3 +45,4 @@
         speakProductsAutomatically();
     </script>
 <?php endif; ?>
+ 

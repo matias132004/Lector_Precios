@@ -115,7 +115,7 @@
 
     function deleteLastCharacter() {
         var inputValue = document.getElementById('cbarra').value;
-        document.getElementById('cbarra').value = inputValue.slice(0, -1);
+        document.getElementById('cbarra').value = inputValue.slice(0,  b);
     }
 
     document.getElementById('openKeyboardBtn').addEventListener('click', function() {

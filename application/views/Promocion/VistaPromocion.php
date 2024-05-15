@@ -15,8 +15,8 @@
                 color: black;
                 overflow: hidden;
                 position: relative;
-                background-color: yellow;
-                font-family: cursive;
+                background-color: #FFFFFF;
+                font-family: 'Times New Roman', Times, serif;
             }
 
             .super-oferta {
@@ -30,7 +30,7 @@
             }
 
             .producto-info {
-                background-color: yellow;
+                background-color: #FFFFFF;
                 padding: 20px;
                 text-align: center;
                 opacity: 0;
@@ -56,18 +56,25 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: red;
+                background-color: white;
                 z-index: -1;
             }
 
             .card-title span {
                 position: relative;
-                color: white;
+                color: black;
             }
 
             .card-text {
-                font-size: 80px;
-            }
+    font-size: 80px;
+    color: white;
+    background-color: red;
+    display: inline-block; /* Cambiado de block a inline-block */
+    padding: 10px; /* Ajusta el espaciado interno según sea necesario */
+    margin: 0; /* Elimina el margen */
+}
+
+
 
             .producto-img {
                 width: 30%;
@@ -85,8 +92,8 @@
 
             .small-ahorro {
                 font-size: 30px;
-                background-color: red;
-                color: white;
+                background-color: white;
+                color: black;
                 display: inline-block;
             }
 
@@ -96,7 +103,7 @@
                 bottom: 0;
                 width: 100%;
                 height: 100px;
-                background-color: yellow;
+                background-color: #FFFFFF;
                 z-index: 9999;
             }
 
@@ -129,8 +136,9 @@
             </div>
             <div class="producto-info">
                 <h2 class="card-title"><span>${promocion.nombre_producto}</span></h2>
-                ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<h2 class="card-text small-price"><del>Precio Anterior: $${promocion.precio_old}</del></h2>` : ''}
+                ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<h2 class="card-text1 small-price"><del>Precio Anterior: $${promocion.precio_old}</del></h2>` : ''}
                 <h1 class="card-text">Precio: $${promocion.total}</h1>
+                <br>
                 ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<p class="card-text">Ahorro: <span class="small-ahorro">$${parseFloat(promocion.precio_old) - parseFloat(promocion.total)}</span></p>` : ''}
                 <img src="http://192.168.1.190/AdministradorLector/uploads/Promocion/${promocion.nombre_imagen || 'not_found.png'}" alt="Producto" class="producto-img img-fluid">
                 <h2>${promocion.descripcion}</h2>
@@ -140,7 +148,7 @@
         <script>
 
             setTimeout(function () {
-                window.location.href = '<?php echo base_url() ?>ControladorPromocion/index';
+                window.location.href = '<?php echo base_url() ?>ControladorPromocion/index';       
             }, 100000);
         </script>
         <script>
@@ -159,7 +167,7 @@
                 var productoInfo = document.querySelector('.producto-info');
                 productoInfo.innerHTML = `
                     <h2 class="card-title"><span>${promocion.nombre_producto}</span></h2>
-                    ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<h2 class="card-text small-price"><del>Precio Anterior: $${promocion.precio_old}</del></h2>` : ''}
+                    ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<h2 class="card-text1 small-price"><del>Precio Anterior: $${promocion.precio_old}</del></h2>` : ''}
                     <h1 class="card-text">Precio Oferta: $${promocion.total}</h1>
                     ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<p class="card-text small-ahorro"">Ahorro: <span>$${parseFloat(promocion.precio_old) - parseFloat(promocion.total)}</span></p>` : ''}
                     <img src="http://192.168.1.190/AdministradorLector/uploads/Promocion/${promocion.nombre_imagen || 'not_found.png'}" alt="Producto" class="producto-img img-fluid">
