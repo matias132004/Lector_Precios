@@ -11,7 +11,7 @@ class ControladorPromocion extends CI_Controller {
 
             $this->load->model('ModeloPromocion');
             $data['img_logo'] = $this->ModeloImagenes->obtenerLogo($id_usuario);
-
+            $data['configuraciones'] = $this->ModeloPromocion->selectConfiguracionPromocion($id_usuario);
             $data['promociones'] = $this->ModeloPromocion->obtenerPromocion();
             $this->load->view('Promocion/VistaPromocion', $data);
         } else {

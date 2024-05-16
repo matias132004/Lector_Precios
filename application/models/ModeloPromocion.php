@@ -37,4 +37,14 @@ class ModeloPromocion extends CI_Model {
 
         return $query->result();
     }
+    public function selectConfiguracionPromocion($id_usuario) {
+        $querySelect = $this->db->query("SELECT configuracionesPromocion.*, fuente.nombre_fuente
+            FROM configuracionesPromocion  
+            INNER JOIN usuario ON usuario.id_datos_local = configuracionesPromocion.id_datos_local
+            INNER JOIN fuente ON configuracionesPromocion.id_fuente = fuente.id_fuente
+            WHERE usuario.id_usuario = '$id_usuario'");
+        return $querySelect->row(); 
+    }
+    
+    
 }

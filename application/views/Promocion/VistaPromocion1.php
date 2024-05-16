@@ -7,7 +7,6 @@
     <title>Promociones</title>
     <link rel="stylesheet" href="<?php echo base_url() ?>/assets/css/bootstrap.min.css">
     <style>
-         <?php $fila = $configuraciones; ?>
         /* Estilos personalizados para las tarjetas */
         body {
             margin: 0;
@@ -16,16 +15,16 @@
             color: black;
             overflow: hidden;
             position: relative;
-            background-color:<?php echo $fila->colorprincipal; ?>;
-            font-family: <?php echo $fila->nombre_fuente; ?>;
+            background-color: yellow;
+            font-family: cursive;
         }
 
         .super-oferta {
-            background-color: <?php echo $fila->colorsecundario; ?>;
+            background-color: red;
             padding: 10px;
             font-size: 60px;
             text-align: center;
-            color: <?php echo $fila->colorfuentesecundario; ?>;
+            color: white;
             opacity: 0;
             animation: fadeIn 0.3s forwards;
             animation: fadeIn 2s forwards;
@@ -59,13 +58,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: <?php echo $fila->colorsecundario; ?>;
+            background-color: red;
             z-index: -1;
         }
 
         .card-title span {
             position: relative;
-            color:  <?php echo $fila->colorfuentesecundario; ?>;
+            color: white;
         }
 
         .card-text {
@@ -88,8 +87,8 @@
 
         .small-ahorro {
             font-size: 30px;
-            background-color:  <?php echo $fila->colorsecundario; ?>;
-            color: <?php echo $fila->colorsecundario; ?>;
+            background-color: red;
+            color: white;
             display: inline-block;
         }
 
@@ -99,7 +98,7 @@
             bottom: 0;
             width: 100%;
             height: 100px;
-            background-color: <?php echo $fila->colorprincipal; ?>;
+            background-color: yellow;
             z-index: 9999;
         }
 
