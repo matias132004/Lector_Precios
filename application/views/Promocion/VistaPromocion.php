@@ -12,8 +12,7 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: sans-serif;
-            color: black;
+            color: <?php echo $fila->colorfuenteprincipal; ?>;
             overflow: hidden;
             position: relative;
             background-color:<?php echo $fila->colorprincipal; ?>;
@@ -89,7 +88,7 @@
         .small-ahorro {
             font-size: 30px;
             background-color:  <?php echo $fila->colorsecundario; ?>;
-            color: <?php echo $fila->colorsecundario; ?>;
+            color: <?php echo $fila->colorfuentesecundario; ?>;
             display: inline-block;
         }
 
@@ -128,7 +127,7 @@
 <body>
     <div class="container">
         <div class="super-oferta">
-            <h1 class="display-12">Super Oferta</h1>
+            <h1 class="display-12"> <?php echo $fila->nombre; ?></h1>
         </div>
         <div class="producto-info">
             <h2 class="card-title"><span>${promocion.nombre_producto}</span></h2>
@@ -143,7 +142,7 @@
     <script>
         setTimeout(function() {
             window.location.href = '<?php echo base_url() ?>ControladorPromocion/index';
-        }, 100000);
+        }, 100000); 
     </script>
     <script>
         var promociones = <?php echo json_encode($promociones); ?>;

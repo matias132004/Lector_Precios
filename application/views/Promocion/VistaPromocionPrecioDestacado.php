@@ -7,24 +7,24 @@
     <title>Promociones</title>
     <link rel="stylesheet" href="<?php echo base_url() ?>/assets/css/bootstrap.min.css">
     <style>
+         <?php $fila = $configuraciones; ?>
         /* Estilos personalizados para las tarjetas */
         body {
             margin: 0;
             padding: 0;
-            font-family: sans-serif;
-            color: black;
+            color: <?php echo $fila->colorfuenteprincipal; ?>;
             overflow: hidden;
             position: relative;
-            background-color: yellow;
-            font-family: cursive;
+            background-color:<?php echo $fila->colorprincipal; ?>;
+            font-family: <?php echo $fila->nombre_fuente; ?>;
         }
 
         .super-oferta {
-            background-color: red;
+            background-color: <?php echo $fila->colorsecundario; ?>;
             padding: 10px;
             font-size: 60px;
             text-align: center;
-            color: white;
+            color: <?php echo $fila->colorfuentesecundario; ?>;
             opacity: 0;
             animation: fadeIn 0.3s forwards;
             animation: fadeIn 2s forwards;
@@ -57,14 +57,15 @@
             top: 0;
             left: 0;
             width: 100%;
+
             height: 100%;
-            background-color: red;
+            background-color:  <?php echo $fila->colorsecundario; ?>;
             z-index: -1;
         }
 
         .card-title span {
             position: relative;
-            color: white;
+            color:  <?php echo $fila->colorfuentesecundario; ?>;
         }
 
         .card-text {
@@ -87,8 +88,8 @@
 
         .small-ahorro {
             font-size: 30px;
-            background-color: red;
-            color: white;
+            background-color:  <?php echo $fila->colorsecundario; ?>;
+            color: <?php echo $fila->colorfuentesecundario; ?>;
             display: inline-block;
         }
 
@@ -98,7 +99,7 @@
             bottom: 0;
             width: 100%;
             height: 100px;
-            background-color: yellow;
+            background-color: <?php echo $fila->colorprincipal; ?>;
             z-index: 9999;
         }
 
@@ -127,13 +128,14 @@
 <body>
     <div class="container">
         <div class="super-oferta">
-            <h1 class="display-12">Super Oferta</h1>
+            <h1 class="display-12"> <?php echo $fila->nombre; ?></h1>
         </div>
         <div class="producto-info">
-            <h2 class="card-title"><span>${promocion.nombre_producto}</span></h2>
+            <h2 class="card-text"><span>${promocion.nombre_producto}</span></h2>
             ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<h2 class="card-text small-price"><del>Precio Anterior: $${promocion.precio_old}</del></h2>` : ''}
-            <h1 class="card-text">Precio: $${promocion.total}</h1>
-            ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<p class="card-text">Ahorro: <span class="small-ahorro">$${parseFloat(promocion.precio_old) - parseFloat(promocion.total)}</span></p>` : ''}
+            <h1 class="card-title" style="color:<?php echo $fila->colorfuentesecundario; ?>">Precio Oferta: $${promocion.total}</h1>
+                    <br>
+            ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<p class="small-ahorro ">Ahorro: <span class="small-ahorro">$${parseFloat(promocion.precio_old) - parseFloat(promocion.total)}</span></p>` : ''}
             <img src="http://192.168.1.190/AdministradorLector/uploads/Promocion/${promocion.nombre_imagen || 'not_found.png'}" alt="Producto" class="producto-img img-fluid">
             <h2>${promocion.descripcion}</h2>
             <p class="small-price">Promoción válida hasta: ${fechaFinFormato}</p>
@@ -142,7 +144,7 @@
     <script>
         setTimeout(function() {
             window.location.href = '<?php echo base_url() ?>ControladorPromocion/index';
-        }, 100000);
+        }, 100000); 
     </script>
     <script>
         var promociones = <?php echo json_encode($promociones); ?>;
@@ -159,9 +161,10 @@
 
             var productoInfo = document.querySelector('.producto-info');
             productoInfo.innerHTML = `
-                    <h2 class="card-title"><span>${promocion.nombre_producto}</span></h2>
+                    <h2 class="card-text"><span>${promocion.nombre_producto}</span></h2>
                     ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<h2 class="card-text small-price"><del>Precio Anterior: $${promocion.precio_old}</del></h2>` : ''}
-                    <h1 class="card-text">Precio Oferta: $${promocion.total}</h1>
+                    <h1 class="card-title" style="color: <?php echo $fila->colorfuentesecundario; ?>">Precio Oferta: $${promocion.total}</h1>
+                    <br>
                     ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<p class="card-text small-ahorro"">Ahorro: <span>$${parseFloat(promocion.precio_old) - parseFloat(promocion.total)}</span></p>` : ''}
                     <img src="http://192.168.1.190/AdministradorLector/uploads/Promocion/${promocion.nombre_imagen || 'not_found.png'}" alt="Producto" class="producto-img img-fluid">
                     <h2>${promocion.descripcion}</h2>

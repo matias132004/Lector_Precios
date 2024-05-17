@@ -52,7 +52,11 @@
                             <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
                             </svg>
                             <h5 class="card-title mt-2">Escáner</h5>
+                            <?php if ($configuracion['scaner'] === 't') { ?>
                             <a href="<?php echo base_url() ?>ControladorEscanear/index" class="stretched-link"></a> <!-- Mantener la funcionalidad del enlace -->
+                            <?php } else { ?>
+                                <a href="#" class="stretched-link" onclick="openModal2(); return false;"></a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -110,9 +114,34 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Contratación del Modulo de escaner de productos</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Para Adquirir este servicio, Contacte a 9 40676939. o ingrese a nuestra pagina web.
+                    </div>
+                    <div class="modal-footer">
+                        <a href="https://datamaule.cl/"><button class="btn btn-outline-success">Ir a la pagina web.</button></a>
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         function openModal() {
             $('#myModal').modal('show');
+        }
+    </script>
+       <script>
+        function openModal2() {
+            $('#myModal2').modal('show');
         }
     </script>
 
