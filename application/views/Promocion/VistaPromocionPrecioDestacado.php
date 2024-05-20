@@ -112,7 +112,14 @@
                 opacity: 1;
             }
         }
-
+        @media (orientation: portrait) {
+            .producto-img {
+                width: 120%;
+                max-width: 120%;
+                height: 120%;
+                max-height: 120%;
+            }
+        }
         @keyframes fadeOut {
             from {
                 opacity: 1;

@@ -8,6 +8,7 @@ class ModeloPromocion extends CI_Model {
                 p.id_producto, 
                 p.id_estado, 
                 pr.nombre_producto, 
+                pr.descripcion as descripcionproducto,  
                 pr.cbarra, 
                 pr.total, 
                 pr.precio_old, 
@@ -45,6 +46,7 @@ class ModeloPromocion extends CI_Model {
             WHERE usuario.id_usuario = '$id_usuario'");
         return $querySelect->row(); 
     }
-    
+
+
     
 }

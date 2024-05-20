@@ -29,8 +29,16 @@ class ControladorPrecioUnico extends CI_Controller {
                     $productos_agrupados[$id_producto] = [];
                 }
                 $productos_agrupados[$id_producto][] = $precio;
-            }
+    
 
+                $datos_escaneados = array(
+                    'id_producto' => $precio->id_producto,
+                    'nombre_producto' => $precio->nombre_producto,
+                    'cbarra' => $precio->cbarra
+                );
+                $this->ModeloPrecioUnico->insertEscaneado($datos_escaneados);
+            }
+    
             $data['productos_agrupados'] = $productos_agrupados;
             $data['configuracion'] = $configuracion;
             $data['datosLocal'] = $datosLocal;
@@ -41,6 +49,8 @@ class ControladorPrecioUnico extends CI_Controller {
             redirect('ControladorLogin');
         }
     }
+
+    
 }
 
 ?>

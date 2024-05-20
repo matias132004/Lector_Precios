@@ -7,7 +7,8 @@
     <title>Promociones</title>
     <link rel="stylesheet" href="<?php echo base_url() ?>/assets/css/bootstrap.min.css">
     <style>
-         <?php $fila = $configuraciones; ?>
+        <?php $fila = $configuraciones; ?>
+
         /* Estilos personalizados para las tarjetas */
         body {
             margin: 0;
@@ -15,7 +16,7 @@
             color: <?php echo $fila->colorfuenteprincipal; ?>;
             overflow: hidden;
             position: relative;
-            background-color:<?php echo $fila->colorprincipal; ?>;
+            background-color: <?php echo $fila->colorprincipal; ?>;
             font-family: <?php echo $fila->nombre_fuente; ?>;
         }
 
@@ -64,7 +65,7 @@
 
         .card-title span {
             position: relative;
-            color:  <?php echo $fila->colorfuentesecundario; ?>;
+            color: <?php echo $fila->colorfuentesecundario; ?>;
         }
 
         .card-text {
@@ -78,6 +79,7 @@
             max-height: 30%;
             display: block;
             margin: 0 auto;
+            
         }
 
 
@@ -87,7 +89,7 @@
 
         .small-ahorro {
             font-size: 30px;
-            background-color:  <?php echo $fila->colorsecundario; ?>;
+            background-color: <?php echo $fila->colorsecundario; ?>;
             color: <?php echo $fila->colorfuentesecundario; ?>;
             display: inline-block;
         }
@@ -100,6 +102,15 @@
             height: 100px;
             background-color: <?php echo $fila->colorprincipal; ?>;
             z-index: 9999;
+        }
+
+        @media (orientation: portrait) {
+            .producto-img {
+                width: 120%;
+                max-width: 120%;
+                height: 120%;
+                max-height: 120%;
+            }
         }
 
         @keyframes fadeIn {
@@ -142,7 +153,7 @@
     <script>
         setTimeout(function() {
             window.location.href = '<?php echo base_url() ?>ControladorPromocion/index';
-        }, 100000); 
+        }, 100000);
     </script>
     <script>
         var promociones = <?php echo json_encode($promociones); ?>;
@@ -185,7 +196,6 @@
             location.reload();
         }, 30 * 60 * 1000);
     </script>
-
     <script src="<?php echo base_url() ?>assets/js/jquery-3.6.4.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
 </body>
