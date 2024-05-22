@@ -21,7 +21,8 @@ class ControladorPrecioUnico extends CI_Controller {
             $datosLocal = $this->ModeloEscanear->selectDatosLocal($id_usuario);
             $data['imagenes'] = $this->ModeloImagenes->obtenerImagenes($id_usuario);
             $data['img_logo'] = $this->ModeloImagenes->obtenerLogo($id_usuario);
-
+            $data['precio_volumen'] = $this->ModeloPrecioUnico->selectPrecioVolumen($cbarra);
+            
             $productos_agrupados = [];
             foreach ($precios as $precio) {
                 $id_producto = $precio->id_producto;

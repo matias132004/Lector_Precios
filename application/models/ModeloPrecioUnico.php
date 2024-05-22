@@ -19,6 +19,11 @@ and p.id_estado = 1
             return false;
         }
     }
+    public function selectPrecioVolumen($cbarra) {
+            $querySelect = $this->db->query("select pv.* from precio_volumen pv inner join producto p on pv.id_producto = p.id_producto where cbarra = '$cbarra'");
+         return $querySelect->result_array();
+    }
+
     public function insertEscaneado($datos_escaneados) {
 
         $this->db->select_max('id_escaneados');
