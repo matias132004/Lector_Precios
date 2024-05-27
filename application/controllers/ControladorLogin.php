@@ -8,25 +8,28 @@ class ControladorLogin extends CI_Controller {
     public function Login() {
         $rut = $this->input->post('rut');
         $password = $this->input->post('password');
-
+    
         $this->load->model('ModeloLogin');
+    
+        $user = $this->ModeloLogin->iniciarSesion($rut);
+    
+        if ($user === '1') {
+            $data['error'] = 'Sistema Bloqueado por no pago.';
+            $this->load->view('Login.php', $data);
+        }
         
-        $user2 = $this->ModeloLogin->iniciarSesion($rut);
-
-        
-        if ($user2 != false && password_verify($password, $user2->contrasena)) {
+        if ($user !== false && property_exists($user, 'contrasena') && password_verify($password, $user->contrasena)) {
             $session_data = array(
-                'id_usuario' => $user2->id_usuario,
-                'rut' => $user2->rut, 
+                'id_usuario' => $user->id_usuario,
+                'rut' => $user->rut, 
             );
             $this->session->set_userdata($session_data);
             redirect('ControladorMenu/index');
-        } else {
+        } elseif ($user === false){
             $data['error'] = 'Usuario o contraseña incorrectos.';
             $this->load->view('Login.php', $data);
         }
     }
-
     
     
     public function logout() {

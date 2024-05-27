@@ -145,7 +145,7 @@
             ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<h2 class="card-text small-price"><del>Precio Anterior: $${promocion.precio_old}</del></h2>` : ''}
             <h1 class="card-text">Precio: $${promocion.total}</h1>
             ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<p class="card-text">Ahorro: <span class="small-ahorro">$${parseFloat(promocion.precio_old) - parseFloat(promocion.total)}</span></p>` : ''}
-            <img src="http://192.168.1.190/AdministradorLector/uploads/Promocion/${promocion.nombre_imagen || 'not_found.png'}" alt="Producto" class="producto-img img-fluid">
+            <img src="http://192.168.1.157/AdministradorLector/uploads/Promocion/${promocion.nombre_imagen || 'not_found.png'}" alt="Producto" class="producto-img img-fluid">
             <h2>${promocion.descripcion}</h2>
             <p class="small-price">Promoción válida hasta: ${fechaFinFormato}</p>
         </div>
@@ -174,7 +174,7 @@
                     ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<h2 class="card-text small-price"><del>Precio Anterior: $${promocion.precio_old}</del></h2>` : ''}
                     <h1 class="card-text">Precio Oferta: $${promocion.total}</h1>
                     ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<p class="card-text small-ahorro"">Ahorro: <span>$${parseFloat(promocion.precio_old) - parseFloat(promocion.total)}</span></p>` : ''}
-                    <img src="http://192.168.1.190/AdministradorLector/uploads/Promocion/${promocion.nombre_imagen || 'not_found.png'}" alt="Producto" class="producto-img img-fluid">
+                    <img src="http://192.168.1.157/AdministradorLector/uploads/Promocion/${promocion.nombre_imagen || 'not_found.png'}" alt="Producto" class="producto-img img-fluid">
                     <h2>${promocion.descripcion}</h2>
                     <p class="small-price">Promoción válida hasta: ${fechaFinFormato}</p>
                 `;
