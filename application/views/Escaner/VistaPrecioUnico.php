@@ -1,14 +1,4 @@
-<?php require_once "application/views/static/Header.php"; ?>
-<style>
-    .text-bg-danger {
-        background-color: red;
-        color: white;
-        /* Asegúrate de que el texto sea legible sobre el fondo rojo */
-        padding: 5px 10px;
-        /* Ajusta el padding según sea necesario */
-        /* Agrega cualquier otra propiedad de estilo que desees */
-    }
-</style>
+<?php require_once "application/views/static/Header.php"; ?> 
 <div class="container">
     <div class="row justify-content-center align-items-center" style="height: 100vh;">
         <?php foreach ($productos_agrupados as $id_producto => $productos) : ?>
@@ -29,7 +19,7 @@
                         <?php endif; ?>
                         <br>
                         <?php if ($configuracion['precio_old_act'] === 't' && $primer_producto->precio_old > $primer_producto->total) : ?>
-                            <p class="text-bg-danger card-text" style="display: inline-block;    border-radius:40%; font-size: 2rem;"><strong>Ahorro:$</strong><?php echo $primer_producto->precio_old - $primer_producto->total; ?></p>
+                            <p class="text-bg-danger card-text" style="display: inline-block; border-radius:5%; font-size: 2rem;"><strong>Ahorro:$</strong><?php echo $primer_producto->precio_old - $primer_producto->total; ?></p>
                         <?php endif; ?>
                     </div>
                 </div>

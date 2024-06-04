@@ -33,39 +33,29 @@
                             <?php echo $error; ?>
                         </div>
                     <?php endif; ?>
-                   <form id="loginForm" action="<?php echo base_url('ControladorLogin/Login'); ?>" method="post">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="RUT" id="camporut" name="rut" maxlength="12">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+                    <form id="loginForm" action="<?php echo base_url('ControladorLogin/Login'); ?>" method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="RUT" id="camporut" name="rut" maxlength="12">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
                             </div>
                         </div>
-                        <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="Password" id="Contrasena" name="password" maxlength="20">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-lock"></span>
-                                </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Password" id="Contrasena" name="password" maxlength="20">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="icheck-primary">
-                                    <input type="checkbox" id="Recuerdame" name="remember">
-                                    <label for="Recuerdame">
-                                        Recuerdame
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary btn-block">Iniciar Sesion</button>
-                            </div>
-
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-block">Iniciar Sesion</button>
                         </div>
-                    </form>
+                    </div>
+                </form>
                 </div>
             </div>
         </div>

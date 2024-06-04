@@ -143,7 +143,7 @@
             <h1 class="card-title" style="color:<?php echo $fila->colorfuentesecundario; ?>">Precio Oferta: $${promocion.total}</h1>
                     <br>
             ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<p class="small-ahorro ">Ahorro: <span class="small-ahorro">$${parseFloat(promocion.precio_old) - parseFloat(promocion.total)}</span></p>` : ''}
-            <img src="http://192.168.1.190/AdministradorLector/uploads/Promocion/${promocion.nombre_imagen || 'not_found.png'}" alt="Producto" class="producto-img img-fluid">
+            <img src="http://192.168.1.90/AdministradorLector/uploads/Promocion/${promocion.nombre_imagen || 'not_found.png'}" alt="Producto" class="producto-img img-fluid">
             <h2>${promocion.descripcion}</h2>
             <p class="small-price">Promoción válida hasta: ${fechaFinFormato}</p>
         </div>
@@ -173,7 +173,7 @@
                     <h1 class="card-title" style="color: <?php echo $fila->colorfuentesecundario; ?>">Precio Oferta: $${promocion.total}</h1>
                     <br>
                     ${parseFloat(promocion.precio_old) > parseFloat(promocion.total) ? `<p class="card-text small-ahorro"">Ahorro: <span>$${parseFloat(promocion.precio_old) - parseFloat(promocion.total)}</span></p>` : ''}
-                    <img src="http://192.168.1.190/AdministradorLector/uploads/Promocion/${promocion.nombre_imagen || 'not_found.png'}" alt="Producto" class="producto-img img-fluid">
+                    <img src="http://192.168.1.90/AdministradorLector/uploads/Promocion/${promocion.nombre_imagen || 'not_found.png'}" alt="Producto" class="producto-img img-fluid">
                     <h2>${promocion.descripcion}</h2>
                     <p class="small-price">Promoción válida hasta: ${fechaFinFormato}</p>
                 `;

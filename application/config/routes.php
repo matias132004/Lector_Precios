@@ -53,5 +53,5 @@ $route['default_controller'] = 'ControladorLogin';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$url_Aministrador = "http://192.168.1.157/AdministradorLector/";
+$url_Aministrador = "http://192.168.1.90/AdministradorLector/";
 

@@ -36,8 +36,16 @@ class ModeloPromocion extends CI_Model {
                     OR EXTRACT(DOW FROM NOW()) = 0 AND p.domingo = 't'
                 );");
 
-        return $query->result();
+        $result = $query->result();
+
+        foreach ($result as $promocion) {
+            $promocion->total = number_format($promocion->total, 0, '', '.');
+            $promocion->precio_old = number_format($promocion->precio_old, 0, '', '.');
+        }
+
+        return $result;
     }
+
     public function selectConfiguracionPromocion($id_usuario) {
         $querySelect = $this->db->query("SELECT configuracionesPromocion.*, fuente.nombre_fuente
             FROM configuracionesPromocion  
@@ -46,7 +54,9 @@ class ModeloPromocion extends CI_Model {
             WHERE usuario.id_usuario = '$id_usuario'");
         return $querySelect->row(); 
     }
-
-
+    public function verificarPagoDatoLocal($id_usuario) {
+        $query = $this->db->query("SELECT dt.pago FROM usuario u INNER JOIN datos_local dt ON u.id_datos_local = dt.id_datos_local WHERE u.id_usuario = ? AND dt.pago = 't'", array($id_usuario));
+        return $query->num_rows() > 0;
+    }
     
 }

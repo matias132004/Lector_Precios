@@ -1,5 +1,4 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ControladorEscanear extends CI_Controller {
@@ -10,6 +9,14 @@ class ControladorEscanear extends CI_Controller {
 
             $this->load->model('ModeloImagenes');
             $this->load->model('ModeloEscanear');
+
+            // Verificar si el usuario tiene el pago de datos local activo
+            $pago_dato_local = $this->ModeloEscanear->verificarPagoDatoLocal($id_usuario);
+            if (!$pago_dato_local) {
+                $data['error'] = 'El acceso ha sido denegado debido a que el pago del dato local no está activo.';
+                $this->load->view('Login.php', $data);
+                return;
+            }
 
             $data['datosLocal'] = $this->ModeloEscanear->selectDatosLocal($id_usuario);
             $data['configuracion'] = $this->ModeloEscanear->selectConfiguracion($id_usuario);

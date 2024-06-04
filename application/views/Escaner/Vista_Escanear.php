@@ -137,9 +137,11 @@
         }
     }
 
-    function clearInput() {
-        document.getElementById('cbarra').value = '';
+    function deleteLastCharacter() {
+        var inputValue = document.getElementById('cbarra').value;
+        document.getElementById('cbarra').value = inputValue.slice(0, -1);
     }
+
 </script>
 
 <?php require_once "application/views/static/Footer.php"; ?>

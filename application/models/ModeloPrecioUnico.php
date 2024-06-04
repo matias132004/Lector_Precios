@@ -38,6 +38,10 @@ and p.id_estado = 1
     
         $this->db->insert('escaneados', $datos_escaneados);
     }
+    public function verificarPagoDatoLocal($id_usuario) {
+        $query = $this->db->query("SELECT dt.pago FROM usuario u INNER JOIN datos_local dt ON u.id_datos_local = dt.id_datos_local WHERE u.id_usuario = ? AND dt.pago = 't'", array($id_usuario));
+        return $query->num_rows() > 0;
+    }
     
 
 }

@@ -15,7 +15,6 @@ class ModeloLogin extends CI_Model {
             $this->db->from('usuario');
             $this->db->where('rut', $rut);
             $this->db->where('id_estado', 1);
-            $this->db->where('id_tipo_usuario !=', 3);
     
             $query = $this->db->get();
     
@@ -30,10 +29,30 @@ class ModeloLogin extends CI_Model {
         }
     }
     
-
     public function verificarContrasena($password, $hash) {
         return password_verify($password, $hash);
     }
-}
 
-?>
+    public function guardarToken($id_usuario, $token) {
+        $data = array('token' => $token);
+        $this->db->where('id_usuario', $id_usuario);
+        return $this->db->update('usuario', $data);
+    }
+
+    public function verificarToken($token) {
+        $this->db->select('*');
+        $this->db->from('usuario');
+        $this->db->where('token', $token);
+        $query = $this->db->get();
+        if ($query->num_rows() == 1) {
+            return $query->row();
+        } else {
+            return false;
+        }
+    }
+    public function verificarPagoDatoLocal($id_usuario) {
+        $query = $this->db->query("SELECT dt.pago FROM usuario u INNER JOIN datos_local dt ON u.id_datos_local = dt.id_datos_local WHERE u.id_usuario = ? AND dt.pago = 't'", array($id_usuario));
+        return $query->num_rows() > 0;
+    }
+    
+}
