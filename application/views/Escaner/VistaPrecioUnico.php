@@ -1,4 +1,4 @@
-<?php require_once "application/views/static/Header.php"; ?> 
+<?php require_once "application/views/static/Header.php"; ?>
 <div class="container">
     <div class="row justify-content-center align-items-center" style="height: 100vh;">
         <?php foreach ($productos_agrupados as $id_producto => $productos) : ?>
@@ -51,37 +51,38 @@
                             </div>
                         </div>
                     </div>
-                    </div>
-                <?php endif; ?>
-
-            <?php endif; ?>
                 </div>
+            <?php endif; ?>
+
+        <?php endif; ?>
+    </div>
 
 
-                <script>
-                    setTimeout(function() {
-                        window.location.href = '<?php echo base_url() ?>ControladorEscanear/index';
-                    }, 8000);
-                </script>
+    <script>
+        setTimeout(function() {
+            window.location.href = '<?php echo base_url() ?>ControladorEscanear/index';
+        }, <?php echo (int)($configuracion['tiempoespera']); ?>);
+    </script>
 
-                <?php if ($configuracion['dictado_precios'] === 't') : ?>
-                    <script>
-                        function speakText(text) {
-                            const speechSynthesis = window.speechSynthesis;
-                            const utterance = new SpeechSynthesisUtterance(text);
-                            speechSynthesis.speak(utterance);
-                        }
 
-                        function speakProductsAutomatically() {
-                            <?php foreach ($productos_agrupados as $id_producto => $productos) : ?>
-                                <?php $primer_producto = reset($productos); ?>
-                                <?php if ($configuracion['precio_old_act'] === 't' && $primer_producto->precio_old > $primer_producto->total) : ?>
-                                    speakText("Precio: <?php echo $primer_producto->total; ?> pesos. Ahorras: <?php echo $primer_producto->precio_old - $primer_producto->total; ?> pesos.");
-                                <?php else : ?>
-                                    speakText("Precio: <?php echo $primer_producto->total; ?> pesos.");
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        }
-                        speakProductsAutomatically();
-                    </script>
-                <?php endif; ?>
+    <?php if ($configuracion['dictado_precios'] === 't') : ?>
+        <script>
+            function speakText(text) {
+                const speechSynthesis = window.speechSynthesis;
+                const utterance = new SpeechSynthesisUtterance(text);
+                speechSynthesis.speak(utterance);
+            }
+
+            function speakProductsAutomatically() {
+                <?php foreach ($productos_agrupados as $id_producto => $productos) : ?>
+                    <?php $primer_producto = reset($productos); ?>
+                    <?php if ($configuracion['precio_old_act'] === 't' && $primer_producto->precio_old > $primer_producto->total) : ?>
+                        speakText("Precio: <?php echo $primer_producto->total; ?> pesos. Ahorras: <?php echo $primer_producto->precio_old - $primer_producto->total; ?> pesos.");
+                    <?php else : ?>
+                        speakText("Precio: <?php echo $primer_producto->total; ?> pesos.");
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            }
+            speakProductsAutomatically();
+        </script>
+    <?php endif; ?>

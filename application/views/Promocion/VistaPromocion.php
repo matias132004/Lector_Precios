@@ -193,7 +193,7 @@
 
         cambiarPromocion();
 
-        setInterval(cambiarPromocion, 15000);
+        setInterval(cambiarPromocion, <?php echo $fila->tiempoespera; ?>);
 
         setTimeout(function() {
             location.reload();
